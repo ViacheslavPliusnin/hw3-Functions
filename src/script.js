@@ -1,3 +1,18 @@
+//Створити функцію, яка форматує ім'я, роблячи першу букву великою.
+function formatName(stringName = "viAchesLav") {
+    const stringLowerCase = stringName.toLowerCase();
+    const stringNewName = stringLowerCase.charAt(0).toUpperCase() + stringLowerCase.slice(1);
+    return stringNewName;
+}
+
+//Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати.
+function countTax(stringSalary = "1000") {
+    const taxPercentage = 19.5;
+    const tax = parseInt(stringSalary) * (taxPercentage / 100);
+    const salaryAfterTaxes = (parseInt(stringSalary) - tax).toFixed(2);
+    return salaryAfterTaxes;
+}
+
 //Створити функцію, яка рахує скільки разів певна буква повторюється в слові.
 function countLetter(charNeeded = "а", stringRepeat = "Урбанізація") {
     let charCounterRepeat = 0;
@@ -7,13 +22,6 @@ function countLetter(charNeeded = "а", stringRepeat = "Урбанізація")
         }
     }
     return charCounterRepeat;
-}
-
-//Створити функцію, яка форматує ім'я, роблячи першу букву великою.
-function formatName(stringName = "viAchesLav") {
-    const stringLowerCase = stringName.toLowerCase();
-    const stringNewName = stringLowerCase.charAt(0).toUpperCase() + stringLowerCase.slice(1);
-    return stringNewName;
 }
 
 // Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку.
@@ -29,6 +37,26 @@ function convertCurrency(stringCurrency = "100$") {
     }
 }
 
-console.log(`Функція №1: ${countLetter()}
-Функція №2: ${formatName()}
-Функція №2: ${convertCurrency()}`)
+//Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
+function generatePassword(numberOfChars = "8") {
+    const passwordLength = +numberOfChars;
+    const charset = "0123456789";
+    let newPassword = "";
+    for (let i = 0, p = charset.length; i < passwordLength; i++) {
+        newPassword += charset.charAt(Math.floor(Math.random() * p));
+    }
+    return newPassword;
+}
+
+//Створіть функцію, яка видаляє всі букви з речення.
+function deleteLetters(letterNeeded = "a", stringSentence = "blablabla") {
+    let newSentence = stringSentence.split(letterNeeded).join("");
+    return newSentence;
+}
+
+console.log(`Функція №1: ${formatName()}
+Функція №2: ${countTax()}
+Функція №3: ${countLetter()}
+Функція №4: ${convertCurrency()}
+Функція №5: ${generatePassword()}
+Функція №6: ${deleteLetters()}`)
