@@ -1,8 +1,6 @@
 //Створити функцію, яка форматує ім'я, роблячи першу букву великою.
 function formatName(stringName = "viAchesLav") {
-    const stringLowerCase = stringName.toLowerCase();
-    const stringNewName = stringLowerCase.charAt(0).toUpperCase() + stringLowerCase.slice(1);
-    return stringNewName;
+    return stringName[0].toUpperCase() + stringName.slice(1).toLowerCase();
 }
 
 //Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати.
@@ -38,12 +36,10 @@ function convertCurrency(stringCurrency = "100$") {
 }
 
 //Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
-function generatePassword(numberOfChars = "8") {
-    const passwordLength = +numberOfChars;
-    const charset = "0123456789";
+function generatePassword(numberOfChars = 8) {
     let newPassword = "";
-    for (let i = 0, p = charset.length; i < passwordLength; i++) {
-        newPassword += charset.charAt(Math.floor(Math.random() * p));
+    for (let i = 0; i < numberOfChars; i++) {
+        newPassword += Math.floor(Math.random() * 10)
     }
     return newPassword;
 }
